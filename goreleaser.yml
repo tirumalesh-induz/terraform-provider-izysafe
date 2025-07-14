@@ -21,6 +21,6 @@ checksum:
 signs:
   - artifacts: checksum
     signature: "${artifact}.sig"  # becomes SHA256SUMS.sig
-    args: ["--armor"] 
+    args: ["--armor", "--detach-sign"] 
     env:
       - GORELEASER_GPG_KEY
