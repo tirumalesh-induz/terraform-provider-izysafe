@@ -18,9 +18,3 @@ archives:
 checksum:
   name_template: "SHA256SUMS"
 
-signs:
-  - artifacts: checksum
-    signature: "${artifact}.sig"
-    args: ["--armor", "--detach-sign"]
-    env:
-      - GORELEASER_GPG_KEY
