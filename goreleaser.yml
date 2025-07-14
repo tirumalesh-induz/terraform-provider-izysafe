@@ -16,5 +16,11 @@ archives:
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
 
 checksum:
-  name_template: "SHASUMS"
+  name_template: "SHA256SUMS"
 
+signs:
+  - artifacts: checksum
+    signature: "${artifact}.sig"  # becomes SHA256SUMS.sig
+    args: ["--armor", "--detach-sign"]
+    env:
+      - GORELEASER_GPG_KEY
